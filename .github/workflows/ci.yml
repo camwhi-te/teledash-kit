@@ -26,7 +26,6 @@ jobs:
       KIT_TEST_DATABASE_URL: postgres://kit_test:kit_test@localhost:5432/kit_test
       KIT_TEST_AMQP_URL: amqp://guest:guest@localhost:5672
       KIT_TEST_DECLARE_EXCHANGES: 'true'
-      KIT_TEST_RABBIT_CONTAINER: ${{ job.services.rabbitmq.id }}
     steps:
       - uses: actions/checkout@v4
       - uses: oven-sh/setup-bun@v2
@@ -37,3 +36,5 @@ jobs:
       - run: bun run typecheck
       - name: Unit and integration tests (real Postgres + RabbitMQ, including a broker restart)
         run: bun test
+        env:
+          KIT_TEST_RABBIT_CONTAINER: ${{ job.services.rabbitmq.id }}
