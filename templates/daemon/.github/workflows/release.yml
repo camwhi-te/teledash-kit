@@ -1,0 +1,15 @@
+name: Release
+
+on:
+  push:
+    tags: ['v*']
+
+jobs:
+  ci:
+    uses: camwhi-te/teledash-kit/.github/workflows/daemon-ci.yml@main
+  image:
+    needs: ci
+    permissions:
+      contents: read
+      packages: write
+    uses: camwhi-te/teledash-kit/.github/workflows/image-release.yml@main

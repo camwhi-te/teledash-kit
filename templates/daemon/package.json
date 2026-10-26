@@ -1,0 +1,25 @@
+{
+  "name": "@teledash/example-daemon",
+  "version": "0.0.0",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "dev": "bun --watch src/main.ts",
+    "test": "bun test",
+    "lint": "biome check .",
+    "typecheck": "tsc --noEmit",
+    "build": "bun build src/main.ts --compile --minify --sourcemap --outfile dist/service",
+    "db:generate": "drizzle-kit generate"
+  },
+  "dependencies": {
+    "@teledash/contracts": "git+https://github.com/camwhi-te/teledash-contracts.git#v0.1.0",
+    "@teledash/kit": "git+https://github.com/camwhi-te/teledash-kit.git#v0.1.0",
+    "drizzle-orm": "^0.45.4"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^2.6.3",
+    "@types/bun": "^1.4.4",
+    "drizzle-kit": "^0.31.11",
+    "typescript": "^7.0.2"
+  }
+}
