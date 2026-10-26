@@ -123,7 +123,7 @@ beforeAll(async () => {
   pongSub = observer.createConsumer(
     {
       queue: 'kit-test.observer',
-      queueOptions: { exclusive: true, autoDelete: true },
+      queueOptions: { durable: true }, // durable: must survive the broker-restart test
       queueBindings: [{ exchange: 'events', routingKey: 'diagnostic.ponged' }],
     },
     async msg => {
