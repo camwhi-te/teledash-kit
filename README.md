@@ -56,6 +56,10 @@ Reusable workflows for daemon repos:
 - [`daemon-ci.yml`](.github/workflows/daemon-ci.yml): lint, typecheck, test against real Postgres and RabbitMQ, compile, and build the image.
 - [`image-release.yml`](.github/workflows/image-release.yml): on a `v*` tag, push `ghcr.io/camwhi-te/<repo>` tagged `X.Y.Z`, `X.Y` and `latest` (linux/amd64).
 
+## Testing a daemon
+
+`@teledash/kit/testing` has `testConfig()` (fast retries, random port, test database and vhost), `resetDatabase()`, `resetQueues()`, `serviceKeys()` for read-API tokens, `waitFor()`, and `MessageBus`, which plays the other services: it sends commands and events and records what the daemon publishes. Tests use the service's own `<name>_test` database and the `teledash_test` vhost from `.env.test`, so they never touch dev data or the running services' queues.
+
 ## Developing
 
 ```sh

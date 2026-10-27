@@ -1,11 +1,12 @@
 {
   "name": "@teledash/kit",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Shared Bun library for Teledash daemons: AMQP, outbox relay, duplicate guard, config, logging, read-API scaffold, migrations.",
   "type": "module",
   "private": true,
   "exports": {
-    ".": "./src/index.ts"
+    ".": "./src/index.ts",
+    "./testing": "./src/testing.ts"
   },
   "files": [
     "src"
