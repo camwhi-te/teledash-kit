@@ -21,7 +21,7 @@ import {
 } from '../src'
 
 const DATABASE_URL = process.env.KIT_TEST_DATABASE_URL ?? 'postgres://kit_test:kit-test-dev@localhost:5433/kit_test'
-const AMQP_URL = process.env.KIT_TEST_AMQP_URL ?? 'amqp://kit-test:kit-test-dev@localhost:5673/teledash'
+const AMQP_URL = process.env.KIT_TEST_AMQP_URL ?? 'amqp://kit-test:kit-test-dev@localhost:5673/teledash_test'
 const RABBIT_CONTAINER = process.env.KIT_TEST_RABBIT_CONTAINER
 
 const keys = (await crypto.subtle.generateKey({ name: 'Ed25519' }, true, [
@@ -83,7 +83,7 @@ beforeAll(async () => {
     RETRY_DELAYS_MS: '100,200',
     CONSUMER_CONCURRENCY: '2',
     SERVICE_TOKEN_PUBLIC_KEY: PUBLIC_KEY,
-    DECLARE_EXCHANGES: process.env.KIT_TEST_DECLARE_EXCHANGES ?? 'false',
+    DECLARE_EXCHANGES: process.env.KIT_TEST_DECLARE_EXCHANGES ?? 'true',
   })
 
   // start from a clean database and empty queues
