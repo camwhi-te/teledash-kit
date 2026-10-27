@@ -43,6 +43,10 @@ await startService({
 - **Compiled binaries embed their files.** Import migration SQL `with { type: 'text' }` (see `templates/daemon/src/migrations.ts`). Nothing is read from disk at runtime.
 - **The kit never declares the shared exchanges** in normal running: `teledash-infra` owns them, and service AMQP users can only configure queues under their own name. Set `DECLARE_EXCHANGES=true` for tests against a bare broker.
 
+## Versions
+
+`@teledash/contracts` is a **peer dependency**: the daemon chooses the contracts version and the kit validates with that same copy. Pin both in the daemon's `package.json`.
+
 ## Starting a new daemon
 
 Copy [`templates/daemon`](templates/daemon): it has the Dockerfile (compile on `oven/bun`, run on `distroless/cc`), CI and release workflows, Biome and TypeScript config, a Drizzle schema with embedded migrations, and a `main.ts`.

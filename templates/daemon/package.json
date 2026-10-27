@@ -12,8 +12,8 @@
     "db:generate": "drizzle-kit generate"
   },
   "dependencies": {
-    "@teledash/contracts": "git+https://github.com/camwhi-te/teledash-contracts.git#v0.1.0",
-    "@teledash/kit": "git+https://github.com/camwhi-te/teledash-kit.git#v0.1.0",
+    "@teledash/contracts": "git+https://github.com/camwhi-te/teledash-contracts.git#v0.2.0",
+    "@teledash/kit": "git+https://github.com/camwhi-te/teledash-kit.git#v0.2.0",
     "drizzle-orm": "^0.45.4"
   },
   "devDependencies": {

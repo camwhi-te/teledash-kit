@@ -166,8 +166,12 @@ describe('messaging', () => {
     expect(pong?.causation_id).toBe(msg.message_id)
     expect(pong?.actor).toEqual({ type: 'agent', id: 'ag_42' })
 
-    const [row] = await svc.sql`SELECT headers, published_at FROM outbox WHERE message_id = ${pong?.message_id}`
-    expect(row.published_at).not.toBeNull()
+    // the relay marks the row published right after the broker confirms, which can land
+    // a moment after the observer has already received the message
+    const row = await waitFor(async () => {
+      const [r] = await svc.sql`SELECT headers, published_at FROM outbox WHERE message_id = ${pong?.message_id}`
+      return r?.published_at ? r : undefined
+    })
     const headers = typeof row.headers === 'string' ? JSON.parse(row.headers) : row.headers
     expect(traceIdOf(headers.traceparent)).toBe('0af7651916cd43dd8448eb211c80319c')
   })

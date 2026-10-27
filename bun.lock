@@ -5,7 +5,6 @@
     "": {
       "name": "@teledash/kit",
       "dependencies": {
-        "@teledash/contracts": "git+https://github.com/camwhi-te/teledash-contracts.git#v0.1.0",
         "drizzle-orm": "^0.45.4",
         "hono": "^4.13.14",
         "jose": "^6.2.13",
@@ -14,8 +13,12 @@
       },
       "devDependencies": {
         "@biomejs/biome": "^2.6.3",
+        "@teledash/contracts": "git+https://github.com/camwhi-te/teledash-contracts.git#v0.2.0",
         "@types/bun": "^1.4.4",
         "typescript": "^7.0.2",
+      },
+      "peerDependencies": {
+        "@teledash/contracts": "*",
       },
     },
   },
@@ -42,7 +45,7 @@
 
     "@biomejs/cli-win32-x64": ["@biomejs/cli-win32-x64@2.6.3", "", { "os": "win32", "cpu": "x64" }, "sha512-GhtOPphBWlnCepqpNk/w5eGN5oGRCzL20EbAkL1XCIpyboeVC9R642noyT43l8LSenGS4qz9IL8sKPfwY37V/Q=="],
 
-    "@teledash/contracts": ["@teledash/contracts@github:camwhi-te/teledash-contracts#a78106f", { "dependencies": { "ajv": "^8.20.0", "ajv-formats": "^3.0.1" } }, "camwhi-te-teledash-contracts-a78106f", "sha512-tg5iWSIlqq6DWnRl9OWYyAqtCh7kmjB+2hoOBDRWpupWFjkA9/mZBpGf2OF/w6FqvwJC0O4Yn0uVyasg6DAnCA=="],
+    "@teledash/contracts": ["@teledash/contracts@github:camwhi-te/teledash-contracts#2d912ec", { "dependencies": { "ajv": "^8.20.0", "ajv-formats": "^3.0.1" } }, "camwhi-te-teledash-contracts-2d912ec", "sha512-SMRFqU9JzMw2yg2CB+ECV7L0PKR9hJOzyi7bTIeqft1p/jkUOUDv04xtv4YLlxHeMt4g1rnxCy+NU4akAkcJ+w=="],
 
     "@types/bun": ["@types/bun@1.4.4", "", { "dependencies": { "bun-types": "1.4.4" } }, "sha512-9wkRDXUXK124pEnAutE6n/l18j+i9GC5IAHK8TmX/2nlySETmky0OU6yL5U8pW1AoKh++AN9auDCr647BfurjQ=="],
 

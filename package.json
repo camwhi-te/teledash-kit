@@ -1,6 +1,6 @@
 {
   "name": "@teledash/kit",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Shared Bun library for Teledash daemons: AMQP, outbox relay, duplicate guard, config, logging, read-API scaffold, migrations.",
   "type": "module",
   "private": true,
@@ -17,7 +17,6 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@teledash/contracts": "git+https://github.com/camwhi-te/teledash-contracts.git#v0.1.0",
     "drizzle-orm": "^0.45.4",
     "hono": "^4.13.14",
     "jose": "^6.2.13",
@@ -26,7 +25,11 @@
   },
   "devDependencies": {
     "@biomejs/biome": "^2.6.3",
+    "@teledash/contracts": "git+https://github.com/camwhi-te/teledash-contracts.git#v0.2.0",
     "@types/bun": "^1.4.4",
     "typescript": "^7.0.2"
+  },
+  "peerDependencies": {
+    "@teledash/contracts": "*"
   }
 }
